@@ -14,6 +14,7 @@ HTTP/1.1 200 OK
 Date: Tue, 25 Sep 2001 19:37:44 GMT
 Set-Cookie: path1=root; domain=.example.fake; path=/;
 Set-Cookie: path2=depth1; domain=.example.fake; path=/hoge;
+Set-Cookie: path3=empty; domain=.example.fake; path=;
 Content-Length: 34
 
 This server says cookie path test
@@ -51,7 +52,7 @@ Host: example.fake
 User-Agent: curl/%VERSION
 Accept: */*
 Proxy-Connection: Keep-Alive
-Cookie: path1=root
+Cookie: path1=root; path3=empty
 
 </protocol>
 </verify>

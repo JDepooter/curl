@@ -838,6 +838,14 @@ parse_netscape(struct Cookie *co,
       co->spath = strdup("/");
       if(!co->spath)
         return CERR_OUT_OF_MEMORY;
+
+      /*
+       * If the length is 0, the cookie was set like: path=;
+       * In such a case, we do not want to fall through to the next field.
+       */
+      if(len == 0)
+        break;
+
       fields++; /* add a field and fall down to secure */
       FALLTHROUGH();
     case 3:
